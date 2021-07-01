@@ -1,10 +1,11 @@
 package com.jts.consumer;
 
 import com.jts.service.api.UserService;
-import org.apache.dubbo.config.annotation.Reference;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RestController
 public class UserController {
 
@@ -16,6 +17,7 @@ public class UserController {
 
         @GetMapping("/getUser")
         public String getUser(){
+                log.info("invoke consumer getUser");
                 return userService.getUser();
         }
 }

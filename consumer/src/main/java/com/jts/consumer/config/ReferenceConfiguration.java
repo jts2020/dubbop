@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ReferenceConfiguration {
     @Bean
-    @DubboReference(version = "1.0.0",url = "dubbo://127.0.0.1:12345")
+    @DubboReference(version = "1.0.0",url = "dubbo://127.0.0.1:12345",check = false)
     public ReferenceBean<UserService> helloService() {
         return new ReferenceBean();
     }

@@ -9,7 +9,7 @@ import org.apache.dubbo.config.annotation.DubboService;
 public class UserServiceImpl implements UserService {
     @Override
     public String getUser() {
-        log.info("invoke getUser");
-        return "User";
+        log.info("invoke provider getUser");
+        return System.nanoTime()+"_User";
     }
 }
