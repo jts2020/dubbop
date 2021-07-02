@@ -1,24 +1,24 @@
-server:
-  port: 8006
-
 spring:
   application:
     name: provider
 
-dubbo:
-  application:
-    register-mode: instance
+#dubbo:
+#  application:
+#    register-mode: instance
     #禁用QOS同一台机器可能会有端口冲突现象
-    qos-enable: false
-    qos-accept-foreign-ip: false
+#    qos:
+#      enable: false
+#      accept:
+#        foreign:
+#          ip: false
     #name: 默认值是$ {spring.application.name}
-  scan:
-    base-packages: com.jts.service.impl
-  protocol:
-    name: dubbo
-    port: 12345
-  registry:
-    address: nacos://127.0.0.1:8848
+#  scan:
+#    base-packages: com.jts.service.impl
+#  protocol:
+#    name: dubbo
+#    port: 12345
+#  registry:
+#    address: nacos://127.0.0.1:8848
 
 nacos:
   config:
