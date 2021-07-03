@@ -6,11 +6,8 @@ spring:
 #  application:
 #    register-mode: instance
     #禁用QOS同一台机器可能会有端口冲突现象
-#    qos:
-#      enable: false
-#      accept:
-#        foreign:
-#          ip: false
+#    qosEnable: false
+#    qosAcceptForeignIp: false
     #name: 默认值是$ {spring.application.name}
 #  scan:
 #    base-packages: com.jts.service.impl
@@ -19,14 +16,15 @@ spring:
 #    port: 12345
 #  registry:
 #    address: nacos://127.0.0.1:8848
+#    group: dubbo
 
-nacos:
-  config:
-    bootstrap:
-      enable: true #开启配置预加载功能
-    serverAddr: 127.0.0.1:8848  #nacos-server地址
+#nacos:
+#  config:
+#    bootstrap:
+#      enable: true #开启配置预加载功能
+#    serverAddr: 127.0.0.1:8848  #nacos-server地址
     #namespace: 命名空间 默认为public
-    dataIds: provider.yaml #多个配置可用“,”分隔
-    type: yaml #固定为yaml类型配置
-    autoRefresh: true #开启自动刷新
+#    dataIds: provider.yaml #多个配置可用“,”分隔
+#    type: yaml #固定为yaml类型配置
+#    autoRefresh: true #开启自动刷新
     #group: 默认分组 DEFAULT_GROUP

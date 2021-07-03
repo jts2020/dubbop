@@ -7,13 +7,14 @@ spring:
 
 dubbo:
   application:
-    service-discovery:
-      migration: FORCE_APPLICATION
+#    service-discovery:
+#      migration: FORCE_APPLICATION
+    name: consumer
     #禁用QOS同一台机器可能会有端口冲突现象
-    qos:
-      enable: false
-      accept:
-        foreign:
-          ip: false
+    qosEnable: false
+    qosAcceptForeignIp: false
   registry:
     address: nacos://127.0.0.1:8848
+    group: dubbo
+    useAsConfigCenter: false
+    useAsMetadataCenter: false
