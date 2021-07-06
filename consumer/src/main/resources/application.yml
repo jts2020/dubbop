@@ -1,15 +1,11 @@
 server:
   port: 18080
 
-spring:
-  application:
-    name: consumer
-
 dubbo:
   application:
-#    service-discovery:
-#      migration: FORCE_APPLICATION
-    name: consumer
+    service-discovery:
+      migration: INTERFACE_FIRST #FORCE_APPLICATION
+    name: c-consumer
     #禁用QOS同一台机器可能会有端口冲突现象
     qosEnable: false
     qosAcceptForeignIp: false
