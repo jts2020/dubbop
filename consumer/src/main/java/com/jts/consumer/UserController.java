@@ -14,6 +14,8 @@ public class UserController {
 
         private ClassService classService;
 
+        private final RateLimiterOnSemaphore limiter = new RateLimiterOnSemaphore();
+
         public UserController(UserService userService,ClassService classService) {
                 this.userService = userService;
                 this.classService = classService;
@@ -21,8 +23,14 @@ public class UserController {
 
         @GetMapping("/getUser")
         public String getUser(){
-                log.info("invoke consumer getUser");
-                return userService.getUser();
+
+                if(limiter.tryAcquire()){
+                        log.info("invoke consumer getUser");
+                        return userService.getUser();
+                }else {
+                        log.info("reject consumer getUser");
+                        return "reject consumer getUser";
+                }
         }
 
         @GetMapping("/getClz")
