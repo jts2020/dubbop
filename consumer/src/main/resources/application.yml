@@ -4,7 +4,7 @@ server:
 dubbo:
   application:
     service-discovery:
-      migration: INTERFACE_FIRST #FORCE_APPLICATION
+      migration: FORCE_APPLICATION #FORCE_APPLICATION
     name: c-consumer
     #禁用QOS同一台机器可能会有端口冲突现象
     qosEnable: false
