@@ -1,9 +1,9 @@
 package com.jts.consumer;
 
+import com.google.common.collect.ImmutableSet;
 import lombok.SneakyThrows;
 
-import java.util.Objects;
-import java.util.Queue;
+import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -39,6 +39,10 @@ public class QueueTest {
     static Thread th = new TT();
 
     public static void main(String[] args) throws Exception {
+
+        Set<String> set = ImmutableSet.of("123","121","22");
+        System.out.println(set);
+        set.add("55");
 
         th.start();
 
