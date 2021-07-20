@@ -15,12 +15,16 @@ public class UserServiceImpl implements UserService {
     private String providerId = null;
 
     @Override
-    public String getUser() {
+        public String getUser() {
         log.info("invoke provider getUser");
         StringJoiner res = new StringJoiner("_")
                 .add(providerId)
                 .add(String.valueOf(System.nanoTime()))
                 .add("User");
         return res.toString();
+    }
+
+    public String get(){
+        return getUser();
     }
 }
