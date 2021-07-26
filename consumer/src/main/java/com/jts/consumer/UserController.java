@@ -30,9 +30,6 @@ public class UserController {
 
         private final RateLimiterOnSemaphore limiter = new RateLimiterOnSemaphore();
 
-
-
-
         @GetMapping("/getUser")
         public String getUser(){
 
