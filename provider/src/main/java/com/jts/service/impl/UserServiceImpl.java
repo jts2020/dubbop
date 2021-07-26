@@ -24,6 +24,7 @@ public class UserServiceImpl implements UserService {
         return res.toString();
     }
 
+    @Override
     public String get(){
         return getUser();
     }
