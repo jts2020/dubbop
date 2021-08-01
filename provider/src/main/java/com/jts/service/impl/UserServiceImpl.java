@@ -5,6 +5,9 @@ import com.jts.service.api.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboService;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import java.util.StringJoiner;
 
 @Slf4j
@@ -25,7 +28,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String get(){
+    public String get() throws NamingException {
+        Context ctxt = new InitialContext();
+        ctxt.lookup("123");
         return getUser();
     }
 }

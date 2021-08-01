@@ -9,6 +9,10 @@ import com.jts.service.api.UserService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
 public class UserServiceImplTest {
 
     UserService userService = new UserServiceImpl();
@@ -25,6 +29,11 @@ public class UserServiceImplTest {
         private String getUser(){
             return "123";
         }
+
+        @MockMethod(targetClass = Context.class)
+        private Object lookup(String str){
+            return "lookup";
+        }
     }
 
     @Test
@@ -37,7 +46,11 @@ public class UserServiceImplTest {
     @Test
     public void test(){
         TestableTool.MOCK_CONTEXT.put("nano",123L);
-        System.out.println(userService.get());
+        try {
+            System.out.println(userService.get());
+        } catch (NamingException e) {
+            e.printStackTrace();
+            Assertions.assertTrue(Boolean.FALSE);
+        }
     }
-
 }
